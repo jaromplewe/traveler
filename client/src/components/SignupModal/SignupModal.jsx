@@ -11,7 +11,7 @@ const SignupModal = () => {
     const [lastNameInput, setLastNameInput] = useState("");
     const [emailInput, setEmailInput] = useState("");
     const [passwordInput, setPasswordInput] = useState("");
-    const [state, dispatch] = useGlobalContext();
+    const [userContext, setUserContext] = useGlobalContext();
 
     const customStyles = {
         content: {
@@ -49,8 +49,6 @@ const SignupModal = () => {
 
         // If we have an email and password we run the loginUser function and clear the form
         loginUser(userData.firstName, userData.lastName, userData.email, userData.password);
-        // emailInput.val("");
-        // passwordInput.val("");
     };
 
     const loginUser = (firstName, lastName, email, password) => {
@@ -61,9 +59,8 @@ const SignupModal = () => {
             password: password
         })
             .then((response) => {
-                console.log(response);
-                console.log(state);
-                dispatch({ type: "login", payload: response.data });
+                console.log(userContext);
+                setUserContext({ user: response.data, isAuth: true });
             })
             .catch((err) => {
                 console.log(err);
