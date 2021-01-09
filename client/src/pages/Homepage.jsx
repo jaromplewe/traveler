@@ -6,11 +6,11 @@ import { useGlobalContext } from "../utils/GlobalContext.js";
 import Login from "../pages/Login.jsx";
 
 const Homepage = () => {
-  const [state] = useGlobalContext();
+  const [usercontext] = useGlobalContext();
 
   return (
     <main className="grid-x">
-      {state.isAuth ? (
+      {usercontext.isAuth ? (
         <>
           <div className="cell medium-3" >
             <TripMenu />
