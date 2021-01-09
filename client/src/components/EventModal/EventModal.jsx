@@ -57,10 +57,6 @@ class EventModal extends Component {
             endDate: this.state.returnDate,
         };
 
-        // if (!eventData.email || !eventData.password) {
-        //     return;
-        // }
-
         this.logEvent(eventData.type, eventData.location, eventData.startDate, eventData.endDate);
         this.handleCloseModal();
     };
@@ -102,15 +98,9 @@ class EventModal extends Component {
 
     render() {
         let trips = this.state.tripLocation;
-        console.log("TRIPS: ", trips)
         let createAllTripOptions = trips.map(trip => 
             <option value={trip}>{trip}</option>
         )
-
-
-        console.log("CREATED ALL TRIPS: ", createAllTripOptions)
-
-
 
         return (
             <div>

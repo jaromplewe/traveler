@@ -7,7 +7,6 @@ import Login from "../pages/Login.jsx";
 
 const Homepage = () => {
   const [state] = useGlobalContext();
-  console.log(state);
 
   return (
     <main className="grid-x">
